@@ -1,0 +1,22 @@
+# Python caches and local environments
+__pycache__/
+*.py[cod]
+.venv/
+.venv*/
+
+# Local application data
+*.db
+*.sqlite
+*.sqlite3
+
+# Build and packaging output
+build/
+dist/
+
+# IDE and local tooling
+.idea/
+.vscode/
+
+# Logs and temporary files
+*.log
+*.tmp
