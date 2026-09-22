@@ -122,7 +122,9 @@ function New-InnoInstaller {
         [Parameter(Mandatory = $true)]
         [string]$Timestamp,
         [Parameter(Mandatory = $true)]
-        [string]$Version
+        [string]$Version,
+        [Parameter(Mandatory = $true)]
+        [string]$IconPath
     )
 
     $outputBaseFilename = "BreaktimeRestaurant-Setup-$Timestamp"
@@ -134,6 +136,7 @@ function New-InnoInstaller {
         "/DMyAppOutput=$ProjectDistPath" `
         "/DMyAppVersion=$Version" `
         "/DMyAppOutputBaseFilename=$outputBaseFilename" `
+        "/DMyAppIcon=$IconPath" `
         $issPath | Out-Host
 
     return $installerPath
@@ -235,7 +238,8 @@ if ($innoCompiler) {
         -BuildFolder $stagedFolder `
         -ProjectDistPath $projectDistPath `
         -Timestamp $timestamp `
-        -Version $releaseVersion
+        -Version $releaseVersion `
+        -IconPath $iconIcoPath
 
     Write-Host "Installer file: $installerPath"
     return
